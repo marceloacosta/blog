@@ -109,8 +109,8 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 nav:
-  - Home:
-    - "blog/index.md"
+  - Home: "blog/index.md"
+    
 plugins:
   - social
   - search:
