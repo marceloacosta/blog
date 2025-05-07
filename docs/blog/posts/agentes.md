@@ -1,3 +1,7 @@
+---
+title: Agentes Inteligentes
+date: 2024-12-01
+---
 # Agentes de IA: Lo que Necesitas Saber  
 **Marcelo Acosta Cavalero**  
 Chief Operating Officer  
