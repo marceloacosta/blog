@@ -1,7 +1,7 @@
-site_name: Jason Liu
-site_author: Jason Liu
+site_name: Site Name
+site_author: Author Name
 site_description: >-
-  AI Consulting, RAG, and other personal notes.
+  Site Description
 repo_name: blog
 repo_url: https://github.com/jxnl/blog/
 site_url: https://jxnl.co/
@@ -9,7 +9,6 @@ edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2024 Jason Liu 
 theme:
   name: material
-  custom_dir: overrides
   icon:
     repo: fontawesome/brands/github
     edit: material/pencil 
@@ -54,8 +53,6 @@ theme:
     - search.share
     - search.suggest
     - toc.follow
-  palette:
-      - scheme: youtube
   font:
     text: Roboto
     code: Roboto Mono
@@ -114,23 +111,10 @@ markdown_extensions:
 nav:
   - Home: 
     - Introductions: 'index.md'
-    - Investments: "investments.md"
-    - User Manual: "user_manual.md"
-    - Books: 'books.md'
-    - Things: 'things.md'
-  - Learn to Improve Your RAG: "systematically-improve-your-rag.md"
-  - Consulting:
-    - Consulting Services: "services.md"
-    - Jump on a Call: "expert-calls.md"
-    - Experts and Vendors: "experts-and-vendors.md"
-  - Job Board: "https://jobs.applied-llms.org"
-  - Writing:
-    - "writing/index.md"
+  - Blog:
+    - "blog/index.md"
 plugins:
   - social
-  - rss:
-      match_path: "writing/posts/.*"
-      skip_ci_warning: true
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - minify:
@@ -144,30 +128,26 @@ plugins:
             show_bases: true
   - blog:
       enabled: !ENV CI
-      blog_dir: writing
+      blog_dir: blog
       blog_toc: true
-      post_dir: writing/posts
+      post_dir: blog/posts
       post_date_format: yyyy/MM/dd
       post_url_format: "{date}/{slug}"
       authors_file: "{blog}/.authors.yml"
 extra:
   analytics:
     provider: google
-    property: G-686PKP2V2V
+    property: G-XXXX
   social:
-    - icon: fontawesome/solid/rss
-      link: feed_rss_created.xml
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/jxnlco
+      link: https://twitter.com/jxnlco # TODO: add link
     - icon: fontawesome/brands/github
-      link: https://github.com/jxnl
-    - icon: fontawesome/brands/linkedin
-      link: https://www.linkedin.com/in/jxnl
+      link: https://github.com/jxnl # TODO: add link
 extra_css:
   - stylesheets/extra.css
 extra_javascript:
   - javascripts/mathjax.js
   - javascripts/analytics.js
-  - https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 copyright: Copyright &copy; 2023 Jason Liu
