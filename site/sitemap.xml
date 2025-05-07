@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://jxnl.co/</loc>
+         <loc>https://marceloacosta.github.io/blog/</loc>
          <lastmod>2025-05-07</lastmod>
     </url>
     <url>
-         <loc>https://jxnl.co/writing-samples/</loc>
+         <loc>https://marceloacosta.github.io/blog/posts/agentes/</loc>
          <lastmod>2025-05-07</lastmod>
     </url>
     <url>
-         <loc>https://jxnl.co/blog/</loc>
+         <loc>https://marceloacosta.github.io/blog/posts/escalamiento-responsable-ia/</loc>
          <lastmod>2025-05-07</lastmod>
     </url>
     <url>
-         <loc>https://jxnl.co/blog/2024/12/04/understanding-the-aida-formula-a-key-to-effective-marketing/</loc>
+         <loc>https://marceloacosta.github.io/blog/posts/evaluaciones-ia/</loc>
          <lastmod>2025-05-07</lastmod>
     </url>
     <url>
-         <loc>https://jxnl.co/blog/archive/2024/</loc>
+         <loc>https://marceloacosta.github.io/blog/posts/ia-en-tu-empresa/</loc>
+         <lastmod>2025-05-07</lastmod>
+    </url>
+    <url>
+         <loc>https://marceloacosta.github.io/blog/posts/programadores-y-ia/</loc>
+         <lastmod>2025-05-07</lastmod>
+    </url>
+    <url>
+         <loc>https://marceloacosta.github.io/blog/posts/trampa-conocimiento-instantaneo/</loc>
+         <lastmod>2025-05-07</lastmod>
+    </url>
+    <url>
+         <loc>https://marceloacosta.github.io/writing/</loc>
          <lastmod>2025-05-07</lastmod>
     </url>
 </urlset>
