@@ -1,5 +1,5 @@
 ---
-title: Escalamiento Responsable de IA: Dónde termina la responsabilidad del proveedor y dónde empieza la tuya
+title: Escalamiento Responsable de IA, Dónde termina la responsabilidad del proveedor y dónde empieza la tuya
 date: <January 9, 2025>
 ---
 
