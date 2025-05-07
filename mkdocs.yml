@@ -1,9 +1,9 @@
-site_name: Site Name
+site_name: Marcelo Acosta Cavalero
 site_author: Marcelo Acosta Cavalero
 site_description: >-
   Site Description
-repo_name: blog
-repo_url: https://github.com/jxnl/blog/
+repo_name: Github
+repo_url: https://github.com/marceloacosta
 site_url: https://marceloacosta.github.io/
 edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2025 Marcelo Acosta Cavalero
@@ -148,4 +148,4 @@ extra_javascript:
   - javascripts/analytics.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-copyright: Copyright &copy; 2023 Jason Liu
+copyright: Copyright &copy; 2025 Marcelo Acosta Cavalero
