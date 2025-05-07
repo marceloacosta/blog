@@ -1,6 +1,6 @@
 # Services
 
-If you're facing any of these challenges, I can help:
+If you're facing any of these challenges, I for sure can help:
 
 - **Scaling Complexity**: Wrestling with AI systems that become increasingly complex and harder to maintain
 - **Integration Bottlenecks**: Struggling to seamlessly integrate AI capabilities into existing workflows
