@@ -13,7 +13,7 @@ theme:
     repo: fontawesome/brands/github
     edit: material/pencil 
     view: material/eye
-    theme:
+    logo: material/cog-outline
     admonition:
       note: octicons/tag-16
       abstract: octicons/checklist-16
@@ -40,9 +40,6 @@ theme:
     - navigation.expand
     - navigation.footer
     - navigation.indexes
-    - navigation.instant
-    - navigation.instant.prefetch
-    - navigation.instant.progress
     - navigation.prune
     - navigation.sections
     - navigation.tabs
@@ -109,12 +106,23 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 nav:
-  - Home: "blog/index.md"
-    - Introductions: 'index.md'
-  - Blog:
-    - "blog/index.md"
+  - Sobre mí: index.md
+  - Escritos:
+      - Blog Overview: blog/index.md
+      - Niveles de RAG: blog/posts/niveles-rag-1.md
+      - Agentes Inteligentes: blog/posts/agentes.md
+      - Escalamiento Responsable: blog/posts/escalamiento-responsable-ia.md
+      - Evaluaciones IA: blog/posts/evaluaciones-ia.md
+      - IA en tu empresa: blog/posts/ia-en-tu-empresa.md
+      - Programadores y IA: blog/posts/programadores-y-ia.md
+      - Trampa del conocimiento instantáneo: blog/posts/trampa-conocimiento-instantaneo.md
+      - Example: blog/posts/example.md
+  - Writing Samples: writing-samples.md
+  - Consulting: consulting.md
+  - Course: course.md
+  - Books: books.md
+
 plugins:
-  - social
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - minify:
@@ -127,13 +135,11 @@ plugins:
             allow_inspection: true
             show_bases: true
   - blog:
-      enabled: !ENV CI
       blog_dir: blog
-      blog_toc: true
       post_dir: blog/posts
       post_date_format: yyyy/MM/dd
-      post_url_format: "{date}/{slug}"
-      authors_file: "{blog}/.authors.yml"
+      blog_toc: true
+
 extra:
   analytics:
     provider: google

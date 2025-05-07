@@ -1,29 +1,8 @@
-# Services
+---
+title: Sobre mí
+---
+Soy Marcelo Acosta Cavalero, consultor independiente y arquitecto de soluciones certificado por AWS, con especialización en Machine Learning. Trabajo en tecnología desde hace más de 30 años y, en los últimos 5, me he enfocado en el manejo de datos y el uso aplicado de modelos de machine learning.
 
-If you're facing any of these challenges, I can help:
+Brindo consultoría estratégica en temas como diseño de arquitecturas de datos, integración de modelos de lenguaje (LLMs) y evaluación de sistemas de IA. El delivery de desarrollo de proyectos lo realizo a través de ZirconTech, una agencia partner de AWS.
 
-- **Scaling Complexity**: Wrestling with AI systems that become increasingly complex and harder to maintain
-- **Integration Bottlenecks**: Struggling to seamlessly integrate AI capabilities into existing workflows
-- **Performance Issues**: Dealing with slow response times and high costs in production systems
-- **Quality Control**: Maintaining consistency and reliability in AI-powered features
-- **Technical Debt**: Accumulating technical debt from rapid AI implementation
-
-## Recent Client Success Stories
-
-| Industry | Challenge Solved | Impact |
-|----------|-----------------|---------|
-| Enterprise SaaS | Optimized RAG pipeline | 60% cost reduction |
-| AI Startup | Scaled inference system | 3x throughput increase |
-| FinTech | Improved response accuracy | 40% better precision |
-
-## Who I Am
-
-An experienced technical consultant specializing in AI implementation and optimization. I help teams:
-
-- Build robust AI systems that scale
-- Optimize performance and reduce costs
-- Implement best practices for long-term success
-- Enable teams with the right tools and knowledge
-
-[Schedule a Consultation](https://cal.com/your-handle){ .md-button .md-button--primary }
-[Read the Blog](./blog/index.md){ .md-button }
+También escribo sobre lo que aprendo trabajando con empresas y tecnologías nuevas. Si te interesa recibir ideas concretas sobre cómo aplicar IA en entornos reales, podés seguir mi blog o contactarme para una conversación directa.

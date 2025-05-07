@@ -1,18 +1,7 @@
-# Blog
+---
+title: Blog
+---
+Escribo sobre una mezcla de consultoría, código abierto, trabajo personal y aplicación de modelos de lenguaje. No todos los textos merecen ser compartidos, pero intento publicar lo más interesante: ideas, experiencias y notas propias.
 
-Welcome to my technical blog where I share insights about:
+Para leer sobre RAG (Retrieval-Augmented Generation) o LLMs (Large Language Models), revisa las etiquetas en la barra lateral.
 
-- AI System Implementation
-- Technical Architecture Design
-- Performance Optimization
-- Team Enablement
-
-## Featured Posts
-
-*Add your technical blog posts in the `posts` directory.*
-
-## Stay Updated
-
-Subscribe to receive technical insights and best practices:
-
-[Subscribe to Updates](#) *(Add your newsletter signup link)*
