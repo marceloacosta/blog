@@ -1,5 +1,5 @@
 ---
-title: Evaluaciones en IA: Lo que todos dicen hacer y pocos hacen bien
+title: Evaluaciones en IA, Lo que todos dicen hacer y pocos hacen bien
 date: 2025-01-09
 ---
 
