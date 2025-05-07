@@ -4,10 +4,8 @@ date: 2024-12-01
 ---
 # Agentes de IA: Lo que Necesitas Saber  
 **Marcelo Acosta Cavalero**  
-Chief Operating Officer  
-*January 7, 2025*
 
-Cuando Chip Huyen habla sobre tecnología, la industria escucha. Su reciente análisis sobre agentes de IA ofrece un marco conceptual sólido que merece atención, especialmente si estás considerando implementar IA en tu organización.
+Cuando Chip Huyen habla sobre tecnología, la industria escucha. Su [reciente análisis sobre agentes de IA](https://huyenchip.com//2025/01/07/agents.html) ofrece un marco conceptual sólido que merece atención, especialmente si estás considerando implementar IA en tu organización.
 
 Hasta ahora, la IA en las empresas ha funcionado como un asistente extremadamente capaz pero con limitaciones operativas. Puede analizar, recomendar y responder, pero no ejecutar tareas por sí misma. Los agentes de IA representan el siguiente paso en esta evolución: sistemas que no solo analizan, sino que actúan.
 
