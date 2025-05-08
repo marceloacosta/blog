@@ -4,7 +4,7 @@ site_description: >-
   Site Description
 repo_name: Github
 repo_url: https://github.com/marceloacosta
-site_url: https://marceloacosta.github.io/
+site_url: http://www.marcelops.com/
 edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2025 Marcelo Acosta Cavalero
 theme:
@@ -116,11 +116,8 @@ nav:
       - IA en tu empresa: blog/posts/ia-en-tu-empresa.md
       - Programadores y IA: blog/posts/programadores-y-ia.md
       - Trampa del conocimiento instantáneo: blog/posts/trampa-conocimiento-instantaneo.md
-      - Example: blog/posts/example.md
-  - Writing Samples: writing-samples.md
-  - Consulting: consulting.md
-  - Course: course.md
-  - Books: books.md
+  - Contacto: https://calendly.com/macosta-zircon/
+
 
 plugins:
   - search:
