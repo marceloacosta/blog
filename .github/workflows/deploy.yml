@@ -28,6 +28,7 @@ jobs:
         run: |
           cd site
           touch .nojekyll
+          echo "www.marcelops.com" > CNAME
           git init
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
