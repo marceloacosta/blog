@@ -4,7 +4,7 @@ site_description: >-
   Site Description
 repo_name: Github
 repo_url: https://github.com/marceloacosta
-site_url: https://marceloacosta.github.io/
+site_url: http://www.marcelops.com/
 edit_uri: edit/main/docs/
 copyright: Copyright &copy; 2025 Marcelo Acosta Cavalero
 theme:
