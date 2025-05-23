@@ -142,7 +142,7 @@ plugins:
 extra:
   analytics:
     provider: google
-    property: G-XXXX
+    property: G-H8C0CLZTWR
   social:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/marceloacostacavalero/
