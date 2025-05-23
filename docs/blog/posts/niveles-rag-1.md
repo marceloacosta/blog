@@ -1,6 +1,6 @@
 ---
 title: De RAG Básico a Avanzado
-date: 2025-05-07
+date: 2025-05-23
 ---
 # De RAG Básico a Avanzado: La Evolución de Sistemas de IA con Conocimiento Empresarial
 
