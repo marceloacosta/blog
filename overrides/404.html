@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>404 - {{ config.site_name }}</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #000;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+            overflow: hidden;
+        }
+        
+        .doom-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+        
+        .doom-canvas {
+            width: 100%;
+            max-width: 1280px;
+            height: auto;
+            aspect-ratio: 16/9;
+            background: #000;
+            border: 2px solid #333;
+        }
+        
+        .doom-ui {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        
+        .loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1001;
+            font-size: 18px;
+            color: #ff6b6b;
+        }
+        
+        .fallback {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .fallback h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ff6b6b;
+        }
+        
+        .fallback a {
+            color: #4fc3f7;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        
+        .fallback a:hover {
+            text-decoration: underline;
+        }
+        
+        .controls-desktop {
+            display: block;
+        }
+        
+        .controls-mobile {
+            display: none;
+        }
+        
+        .focus-desktop {
+            display: block;
+        }
+        
+        .focus-mobile {
+            display: none;
+        }
+        
+        /* Mobile responsive styles */
+        @media (max-width: 768px) {
+            .doom-ui {
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                padding: 10px;
+                font-size: 12px;
+            }
+            
+            .doom-canvas {
+                width: 100vw;
+                height: 100vh;
+                border: none;
+                aspect-ratio: unset;
+            }
+            
+            .loading {
+                font-size: 16px;
+            }
+            
+            .controls-desktop {
+                display: none !important;
+            }
+            
+            .controls-mobile {
+                display: block !important;
+            }
+            
+            .focus-desktop {
+                display: none !important;
+            }
+            
+            .focus-mobile {
+                display: inline !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="doom-container">
+        <div class="doom-ui">
+            <div>Demonios eliminados: <span id="killCount">0</span>/3</div>
+            <div>Mata a 3 demonios para volver al blog!</div>
+            <div style="margin-top: 10px; font-size: 12px; color: #ccc;">
+                <div>Controles:</div>
+                <div class="controls-desktop">↑↓←→ Mover | Ctrl = Disparar | Espacio = Abrir puertas</div>
+                <div class="controls-mobile" style="display: none;">Toca la pantalla para jugar</div>
+                <div style="margin-top: 5px; font-size: 11px; color: #999;">
+                    <span class="focus-desktop">Haz clic en el juego para activar los controles</span>
+                    <span class="focus-mobile" style="display: none;">Gira el dispositivo para mejor experiencia</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="loading" id="loadingText">Cargando DOOM...</div>
+        
+        <canvas class="doom-canvas" id="canvas" oncontextmenu="event.preventDefault()" tabindex="0" onclick="this.focus()"></canvas>
+        
+        <div class="fallback" id="fallback">
+            <h1>404 - Página no encontrada</h1>
+            <p>La página que buscas no existe.</p>
+            <a href="/">Volver al inicio</a>
+        </div>
+    </div>
+
+    <script type='text/javascript'>
+        let killCount = 0;
+        let redirected = false;
+        
+        // Detect mobile device
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+                || window.innerWidth <= 768;
+        }
+        
+        // Show appropriate controls based on device
+        function setupControls() {
+            const isMobile = isMobileDevice();
+            
+            document.querySelector('.controls-desktop').style.display = isMobile ? 'none' : 'block';
+            document.querySelector('.controls-mobile').style.display = isMobile ? 'block' : 'none';
+            document.querySelector('.focus-desktop').style.display = isMobile ? 'none' : 'inline';
+            document.querySelector('.focus-mobile').style.display = isMobile ? 'inline' : 'none';
+        }
+        
+        // Setup controls on page load
+        setupControls();
+        
+        // Re-check on window resize
+        window.addEventListener('resize', setupControls);
+        
+        // Callback functions that the DOOM engine will call
+        function onEnemyKilled() {
+            if (redirected) return;
+            
+            killCount++;
+            document.getElementById('killCount').textContent = killCount;
+            
+            console.log(`¡Demonio eliminado! Cuenta: ${killCount}`);
+            
+            if (killCount >= 3) {
+                redirected = true;
+                setTimeout(() => {
+                    console.log('Redirigiendo al blog...');
+                    window.location.href = '/';
+                }, 1000);
+            }
+        }
+        
+        function onPlayerBorn() {
+            console.log('Jugador nacido/renacido');
+        }
+        
+        function onPlayerKilled() {
+            console.log('Jugador asesinado');
+        }
+        
+        function onPlayerDeath() {
+            console.log('Muerte del jugador');
+        }
+        
+        function onPlayerSpawn() {
+            console.log('Aparición del jugador');
+        }
+
+        // Expose callbacks globally for DOOM engine access
+        window.onEnemyKilled = onEnemyKilled;
+        window.onPlayerBorn = onPlayerBorn;
+        window.onPlayerKilled = onPlayerKilled;
+        window.onPlayerDeath = onPlayerDeath;
+        window.onPlayerSpawn = onPlayerSpawn;
+
+        // Set up timeout as fallback
+        setTimeout(() => {
+            if (!redirected) {
+                console.log('Tiempo agotado, redirigiendo al blog...');
+                window.location.href = '/';
+            }
+        }, 120000); // 2 minutes
+
+        // Emscripten Module configuration
+        var Module = {
+            preRun: [],
+            postRun: [],
+            print: function(text) {
+                console.log('DOOM:', text);
+            },
+            printErr: function(text) {
+                console.error('DOOM Error:', text);
+            },
+            canvas: document.getElementById('canvas'),
+            setStatus: function(text) {
+                const loadingEl = document.getElementById('loadingText');
+                if (text) {
+                    console.log('DOOM Status:', text);
+                    if (loadingEl) loadingEl.textContent = text;
+                } else {
+                    if (loadingEl) loadingEl.style.display = 'none';
+                }
+            },
+            totalDependencies: 0,
+            monitorRunDependencies: function(left) {
+                this.totalDependencies = Math.max(this.totalDependencies, left);
+                Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies-left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
+            },
+            locateFile: function(path, prefix) {
+                // Ensure assets are loaded from the correct path
+                if (path.endsWith('.wasm') || path.endsWith('.data')) {
+                    return '/assets/doom404/' + path;
+                }
+                return prefix + path;
+            },
+            // Command line arguments for auto-starting the game
+            arguments: ['-autoreborn', '-nomenu', '-fast', '-skill', '5', '-warp', 'e1m1'],
+            // Expose the callbacks on Module object for DOOM engine access
+            onEnemyKilled: function() {
+                if (window.onEnemyKilled) window.onEnemyKilled();
+            },
+            onPlayerBorn: function() {
+                if (window.onPlayerBorn) window.onPlayerBorn();
+            },
+            onPlayerKilled: function() {
+                if (window.onPlayerKilled) window.onPlayerKilled();
+            },
+            onPlayerDeath: function() {
+                if (window.onPlayerDeath) window.onPlayerDeath();
+            },
+            onPlayerSpawn: function() {
+                if (window.onPlayerSpawn) window.onPlayerSpawn();
+            }
+        };
+        
+        // Also expose Module globally
+        window.Module = Module;
+        
+        Module.setStatus('Downloading...');
+        
+        // Fallback for browsers without WebAssembly support
+        if (!window.WebAssembly) {
+            console.error('WebAssembly no soportado');
+            document.querySelector('.doom-container').style.display = 'none';
+            document.getElementById('fallback').style.display = 'block';
+        } else {
+            // Load the DOOM engine
+            const script = document.createElement('script');
+            script.src = '/assets/doom404/index.js';
+            script.onerror = function() {
+                console.error('Error al cargar el motor DOOM');
+                document.querySelector('.doom-container').style.display = 'none';
+                document.getElementById('fallback').style.display = 'block';
+            };
+            document.head.appendChild(script);
+        }
+    </script>
+</body>
+</html> 
