@@ -1,8 +1,19 @@
 ---
-
 title: Convierte errores 404 en engagement en 11 pasos
 date: 2025-05-29
-----------------
+authors:
+  - marceloacosta
+categories:
+  - Web Development
+  - Tech Tutorial
+tags:
+  - doom
+  - 404
+  - mkdocs
+  - webassembly
+  - javascript
+description: Cómo implementé una página 404 interactiva con DOOM usando MkDocs, WebAssembly y controles táctiles, convirtiendo errores en engagement.
+---
 
 # Convierte errores 404 en engagement en 11 pasos
 
@@ -22,7 +33,7 @@ Lo interesante no fue solo compilar un juego de 1993 para navegadores modernos, 
 
 MkDocs es un **generador de sitios estáticos pensado para documentación**, construido sobre Python. Al alojar mi blog allí, ya tenía un pipeline de construcción simple y sin servidores.
 
-Primero creo y activo un *virtualenv* para aislar dependencias, instalo **Material for MkDocs** —el tema que da el look & feel— y declaro la carpeta `overrides` en `mkdocs.yml`. `overrides` actúa como una carpeta “shadow”: cualquier archivo que pongas allí reemplaza al del tema por defecto. Finalmente, creo `docs/assets/doom404`, el directorio que servirá los binarios del juego como si fueran imágenes.
+Primero creo y activo un *virtualenv* para aislar dependencias, instalo **Material for MkDocs** —el tema que da el look & feel— y declaro la carpeta `overrides` en `mkdocs.yml`. `overrides` actúa como una carpeta "shadow": cualquier archivo que pongas allí reemplaza al del tema por defecto. Finalmente, creo `docs/assets/doom404`, el directorio que servirá los binarios del juego como si fueran imágenes.
 
 ### Paso 2 – Diseñar la nueva 404
 
