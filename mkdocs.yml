@@ -111,6 +111,7 @@ nav:
   - Escritos:
       - Blog Overview: blog/index.md
       - Niveles de RAG: blog/posts/niveles-rag-1.md
+      - Convierte errores 404 en engagement en 11 pasos: blog/posts/doom-404.md
       - Agentes Inteligentes: blog/posts/agentes.md
       - Escalamiento Responsable: blog/posts/escalamiento-responsable-ia.md
       - Evaluaciones IA: blog/posts/evaluaciones-ia.md
