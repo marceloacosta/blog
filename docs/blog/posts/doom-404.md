@@ -20,6 +20,8 @@ description: Cómo implementé una página 404 interactiva con DOOM usando MkDoc
 
 El **DOOM CAPTCHA** de Guillermo Rauch me inspiró a crear algo similar para las páginas 404 de mi blog. En lugar del típico *«Página no encontrada»*, ahora los usuarios pueden jugar DOOM y, al matar tres demonios, son redirigidos automáticamente a la portada.
 
+Para verlo entra a cualquier página que no exista en este blog, por ejemplo https://www.marcelops.com/pagina-que-no-existe
+
 Lo interesante no fue solo compilar un juego de 1993 para navegadores modernos, sino cómo tecnologías completamente diferentes —un generador de sitios estáticos, un compilador de C a WebAssembly y controles táctiles— se integraron en una solución coherente que cualquiera puede reproducir.
 
 
