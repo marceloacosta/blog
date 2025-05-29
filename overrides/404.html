@@ -132,6 +132,87 @@
                 display: inline !important;
             }
         }
+        
+        /* Virtual mobile controls */
+        .mobile-controls {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 2000;
+            pointer-events: none;
+        }
+        
+        .mobile-controls.show {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        
+        .dpad {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            pointer-events: auto;
+        }
+        
+        .dpad-btn {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid #333;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+            cursor: pointer;
+            user-select: none;
+            touch-action: manipulation;
+        }
+        
+        .dpad-btn:active {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(0.95);
+        }
+        
+        .dpad-up { top: 0; left: 40px; }
+        .dpad-down { bottom: 0; left: 40px; }
+        .dpad-left { top: 40px; left: 0; }
+        .dpad-right { top: 40px; right: 0; }
+        
+        .action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            pointer-events: auto;
+        }
+        
+        .action-btn {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+            cursor: pointer;
+            user-select: none;
+            touch-action: manipulation;
+        }
+        
+        .action-btn:active {
+            background: rgba(255, 255, 255, 1);
+            transform: scale(0.95);
+        }
     </style>
 </head>
 <body>
@@ -159,6 +240,20 @@
             <p>La página que buscas no existe.</p>
             <a href="/">Volver al inicio</a>
         </div>
+        
+        <!-- Virtual mobile controls -->
+        <div class="mobile-controls" id="mobileControls">
+            <div class="dpad">
+                <div class="dpad-btn dpad-up" data-key="ArrowUp">↑</div>
+                <div class="dpad-btn dpad-down" data-key="ArrowDown">↓</div>
+                <div class="dpad-btn dpad-left" data-key="ArrowLeft">←</div>
+                <div class="dpad-btn dpad-right" data-key="ArrowRight">→</div>
+            </div>
+            <div class="action-buttons">
+                <div class="action-btn" data-key="Control">🔫</div>
+                <div class="action-btn" data-key=" ">🚪</div>
+            </div>
+        </div>
     </div>
 
     <script type='text/javascript'>
@@ -179,6 +274,100 @@
             document.querySelector('.controls-mobile').style.display = isMobile ? 'block' : 'none';
             document.querySelector('.focus-desktop').style.display = isMobile ? 'none' : 'inline';
             document.querySelector('.focus-mobile').style.display = isMobile ? 'inline' : 'none';
+            
+            // Show/hide virtual controls
+            const mobileControls = document.getElementById('mobileControls');
+            if (isMobile) {
+                mobileControls.classList.add('show');
+                setupVirtualControls();
+            } else {
+                mobileControls.classList.remove('show');
+            }
+        }
+        
+        // Setup virtual mobile controls
+        function setupVirtualControls() {
+            const canvas = document.getElementById('canvas');
+            const buttons = document.querySelectorAll('.dpad-btn, .action-btn');
+            
+            buttons.forEach(button => {
+                const key = button.getAttribute('data-key');
+                
+                // Touch events for mobile
+                button.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    simulateKeyDown(key);
+                    button.style.background = 'rgba(255, 255, 255, 1)';
+                });
+                
+                button.addEventListener('touchend', (e) => {
+                    e.preventDefault();
+                    simulateKeyUp(key);
+                    button.style.background = 'rgba(255, 255, 255, 0.8)';
+                });
+                
+                // Mouse events for testing on desktop
+                button.addEventListener('mousedown', (e) => {
+                    e.preventDefault();
+                    simulateKeyDown(key);
+                });
+                
+                button.addEventListener('mouseup', (e) => {
+                    e.preventDefault();
+                    simulateKeyUp(key);
+                });
+            });
+        }
+        
+        // Simulate keyboard events for DOOM
+        function simulateKeyDown(key) {
+            const canvas = document.getElementById('canvas');
+            const event = new KeyboardEvent('keydown', {
+                key: key,
+                code: getKeyCode(key),
+                keyCode: getKeyCodeNumber(key),
+                bubbles: true,
+                cancelable: true
+            });
+            canvas.dispatchEvent(event);
+            document.dispatchEvent(event);
+        }
+        
+        function simulateKeyUp(key) {
+            const canvas = document.getElementById('canvas');
+            const event = new KeyboardEvent('keyup', {
+                key: key,
+                code: getKeyCode(key),
+                keyCode: getKeyCodeNumber(key),
+                bubbles: true,
+                cancelable: true
+            });
+            canvas.dispatchEvent(event);
+            document.dispatchEvent(event);
+        }
+        
+        function getKeyCode(key) {
+            const codes = {
+                'ArrowUp': 'ArrowUp',
+                'ArrowDown': 'ArrowDown',
+                'ArrowLeft': 'ArrowLeft',
+                'ArrowRight': 'ArrowRight',
+                'Control': 'ControlLeft',
+                ' ': 'Space'
+            };
+            return codes[key] || key;
+        }
+        
+        function getKeyCodeNumber(key) {
+            const codes = {
+                'ArrowUp': 38,
+                'ArrowDown': 40,
+                'ArrowLeft': 37,
+                'ArrowRight': 39,
+                'Control': 17,
+                ' ': 32
+            };
+            return codes[key] || 0;
         }
         
         // Setup controls on page load
