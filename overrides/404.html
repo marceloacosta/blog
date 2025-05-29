@@ -98,11 +98,15 @@
         /* Mobile responsive styles */
         @media (max-width: 768px) {
             .doom-ui {
-                top: 10px;
-                left: 10px;
-                right: 10px;
-                padding: 10px;
-                font-size: 12px;
+                top: 5px;
+                left: 5px;
+                right: auto;
+                width: auto;
+                max-width: 200px;
+                padding: 8px;
+                font-size: 11px;
+                background: rgba(0, 0, 0, 0.6);
+                border-radius: 8px;
             }
             
             .doom-canvas {
@@ -223,10 +227,10 @@
             <div style="margin-top: 10px; font-size: 12px; color: #ccc;">
                 <div>Controles:</div>
                 <div class="controls-desktop">↑↓←→ Mover | Ctrl = Disparar | Espacio = Abrir puertas</div>
-                <div class="controls-mobile" style="display: none;">Toca la pantalla para jugar</div>
+                <div class="controls-mobile" style="display: none;">¡Usa los controles!</div>
                 <div style="margin-top: 5px; font-size: 11px; color: #999;">
                     <span class="focus-desktop">Haz clic en el juego para activar los controles</span>
-                    <span class="focus-mobile" style="display: none;">Gira el dispositivo para mejor experiencia</span>
+                    <span class="focus-mobile" style="display: none;">D-pad + botones abajo</span>
                 </div>
             </div>
         </div>
