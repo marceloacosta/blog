@@ -17,15 +17,11 @@ description: Cómo implementé una página 404 interactiva con DOOM usando MkDoc
 
 # Convierte errores 404 en engagement en 11 pasos
 
-**Marcelo Acosta Cavalero**
-
----
 
 El **DOOM CAPTCHA** de Guillermo Rauch me inspiró a crear algo similar para las páginas 404 de mi blog. En lugar del típico *«Página no encontrada»*, ahora los usuarios pueden jugar DOOM y, al matar tres demonios, son redirigidos automáticamente a la portada.
 
 Lo interesante no fue solo compilar un juego de 1993 para navegadores modernos, sino cómo tecnologías completamente diferentes —un generador de sitios estáticos, un compilador de C a WebAssembly y controles táctiles— se integraron en una solución coherente que cualquiera puede reproducir.
 
----
 
 ## 11 pasos de la idea a la producción
 
@@ -87,9 +83,8 @@ GitHub Actions corre en cada *push*: instala dependencias, ejecuta `mkdocs bui
 * **Push interrumpido**: Git aborta al traspasar 50 MB de datos. Sube el límite con `git config http.postBuffer 524288000`.
 * **HUD invasivo**: si en escritorio el HUD tapa la acción, revisa la media‑query del Paso 6; probablemente el tamaño mínimo no se aplica porque el viewport es mayor que 768 px.
 
----
 
 
-Este DOOM 404 convierte un error en una micro‑experiencia que engancha. Con Google Analytics puedo demostrar que el tiempo medio en página pasó a 90 s y el *bounce rate* cayó a menos de la mitad.
+Este DOOM 404 convierte un error en una micro‑experiencia que engancha a los visitantes de tu web. Con Google Analytics se puede demostrar el impacto en el tiempo de permanencia en la página y la tasa de rebote, consiguiendo un mayor engagement y conversión.
 
-Si necesitas ayuda para que tu equipo combine tecnologías o integre IA de forma práctica en su trabajo, contáctame y lo revisamos juntos.
+*Si necesitas ayuda para que tu equipo combine tecnologías o integre IA de forma práctica en su trabajo, contáctame y lo revisamos juntos.*
