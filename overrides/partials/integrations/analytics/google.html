@@ -1,0 +1,13 @@
+{# Replace Material's default implementation; never load a second Google tag. #}
+{% if config.extra.analytics.property %}
+<script>
+function __md_analytics() {
+  if (document.querySelector('script[data-build-with-aws-analytics]')) return;
+  var script = document.createElement('script');
+  script.src = {{ 'javascripts/analytics.js' | url | tojson }};
+  script.dataset.measurementId = {{ config.extra.analytics.property | tojson }};
+  script.dataset.buildWithAwsAnalytics = '';
+  document.head.appendChild(script);
+}
+</script>
+{% endif %}

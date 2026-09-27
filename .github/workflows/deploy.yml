@@ -23,6 +23,8 @@ jobs:
 
       - name: Build site
         run: mkdocs build
+        env:
+          GA4_MEASUREMENT_ID: ${{ vars.GA4_MEASUREMENT_ID || 'G-YLB0CNYQ8Z' }}
 
       - name: Deploy to GitHub Pages repo
         run: |
