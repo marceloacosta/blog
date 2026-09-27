@@ -26,7 +26,7 @@ by OCR Rush). CTA parameters identify placement and read/subscribe intent;
 custom link URLs omit query values. These events are not completed subscriptions.
 External links such as Calendly use GA4's enhanced outbound `click` event.
 
-Ordinary same-tab publication links wait at most 300 ms for the event callback
+Ordinary same-tab publication links wait at most 1000 ms for the event callback
 when Google's script has loaded. Events continue bubbling so Google's linker
 can add `_gl`; navigation reads the decorated href. Modified/new-tab links and
 links with blocked Google loading keep native behavior. No UTMs are inserted
