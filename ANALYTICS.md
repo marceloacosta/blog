@@ -17,7 +17,8 @@ same integration. `hooks/analytics.py` adds it to standalone HTML copied into
 the output, including Doom's page. Future pages built here inherit coverage.
 
 `docs/javascripts/analytics.js` initializes GA4 once. GA4 sends the initial
-page view; Enhanced Measurement owns history page views. Do not add a second
+page view. Disable shared enhanced history page views: Substack already sends
+its own route views, and enabling both duplicates article views. Do not add a second
 tag, manual page_view, or Material location$ analytics subscription.
 
 Delegated events track publication navigation (`build_with_aws_click`) and
@@ -39,7 +40,8 @@ does not automatically inject analytics.
 
 In GA4, configure exact cross-domain matches for `marcelops.com`,
 `www.marcelops.com`, and `buildwithaws.substack.com`. Keep Enhanced Measurement
-page views (including browser history), scrolls and outbound clicks enabled.
+page-load views, scrolls and outbound clicks enabled; disable browser-history
+page views in the shared stream.
 Register event-scoped `cta_id` and `cta_intent` custom dimensions for reporting.
 In Substack Settings → Analytics, save **G-YLB0CNYQ8Z** in **Google Analytics
 Measurement ID**. Do not add a duplicate GA tag through GTM.
@@ -48,3 +50,9 @@ Verify after deployment: one `page_view` per page, one CTA event per click,
 `_gl` on the clicked Substack destination, and identical GA request `cid` and
 `sid` across the domains in a single active session. Confirm actual native
 Substack subscription events before marking any as key events.
+
+The shared property marks `build_with_aws_click` as a publication-referral key
+event, once per event, with no default monetary value. It remains separate
+from completed subscriptions. If a future first-party site adopts SPA routing,
+track its route views once in that application; keep shared enhanced history
+tracking off to avoid duplicating Substack article views.
